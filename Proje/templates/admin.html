@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Control Panel</title>
+    <link rel="stylesheet" href="/static/css/admin.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Admin Control Panel</h1>
+
+    <div class="card">
+        <h2>User Management</h2>
+        <p>Manage users, permissions, and roles.</p>
+        <a href="#" class="button">Go to User Management</a>
+    </div>
+
+    <div class="card">
+        <h2>Content Management</h2>
+        <p>Manage website content, articles, and media.</p>
+        <a href="#" class="button">Go to Content Management</a>
+    </div>
+
+    <div class="card">
+        <h2>Settings</h2>
+        <p>Manage system settings and configurations.</p>
+        <a href="#" class="button">Go to Settings</a>
+    </div>
+</div>
+<button><a href="{{ url_for('anasayfa') }}">GERİ DÖN</a></button>
+</body>
+</html>

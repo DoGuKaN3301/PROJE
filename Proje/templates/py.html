@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Kod</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+
+    <ul>
+        <li><a href="{{ url_for('anasayfa') }}">Anasayfa</a></li>
+        <li><a href="#news"></a></li>
+        <li class="dropdown">
+          <a href="javascript:void(0)" class="dropbtn">Yazılım Dilleri</a>
+          <div class="dropdown-content">
+            <a href="{{ url_for('python') }}">Python</a>
+            <a href="#">C</a>
+            <a href="#">C#</a>
+           
+          </div>
+        </li>
+      </ul>
+
+    <h1>Python Kodları Çalıştır</h1>
+    <textarea id="python-code" rows="10" cols="50"></textarea><br>
+    <button onclick="runPythonCode()">Kodları Çalıştır</button>
+    <div id="output"></div>
+
+    <script>
+        function runPythonCode() {
+            var code = document.getElementById('python-code').value;
+            fetch('/runcode', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'code=' + encodeURIComponent(code),
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('output').innerHTML = data;
+            })
+            .catch(error => console.error('Hata:', error));
+        }
+    </script>
+</body>
+</html>
